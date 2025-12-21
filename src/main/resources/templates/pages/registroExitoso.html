@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <title>Solicitudes de Contacto</title>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-[9999]
+                w-[90%] max-w-screen-xl
+                bg-white/80 backdrop-blur-md
+                rounded-full shadow-lg box-border">
+        <div class="px-8 py-4 flex items-center justify-between box-border">
+            <a href="/" class="flex items-center gap-3 no-underline">
+                <img th:src="@{/image/logo.png}" alt="MoveFast Logo" class="h-8 w-auto">
+                <span class="text-lg font-semibold tracking-wide text-gray-800">
+                    MoveFast
+                </span>
+            </a>
+            <div class="flex gap-6">
+                <a th:href="@{/inicio}" class="font-medium text-gray-700 hover:text-blue-600 transition">Inicio</a>
+                <a th:href="@{/servicios}"
+                    class="font-medium text-gray-700 hover:text-blue-600 transition">Servicios</a>
+                <a th:href="@{/contacto/formContacto}"
+                    class="font-medium text-gray-700 hover:text-blue-600 transition">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto p-6 mt-32">
+
+        <h1 class="text-2xl font-bold mb-6 text-gray-800">
+            Solicitud de Servicios
+        </h1>
+
+        <!-- Table -->
+        <div class="relative overflow-x-auto bg-white shadow-md rounded-lg border border-gray-200">
+            <table class="w-full text-sm text-left text-gray-700">
+                <thead class="bg-gray-100 border-b">
+                    <tr>
+                        <th class="px-6 py-3 font-semibold">Nombre</th>
+                        <th class="px-6 py-3 font-semibold">Teléfono</th>
+                        <th class="px-6 py-3 font-semibold">Correo</th>
+                        <th class="px-6 py-3 font-semibold">Servicio</th>
+                        <th class="px-6 py-3 font-semibold">Mensaje</th>
+                        <th class="px-6 py-3 font-semibold text-center">Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each="contacto : ${contactos}"
+                        class="odd:bg-white even:bg-gray-50 border-b hover:bg-gray-100">
+
+                        <td th:text="${contacto.nombre}" class="px-6 py-4"></td>
+
+                        <td th:text="${contacto.telefono}" class="px-6 py-4"></td>
+
+                        <td th:text="${contacto.email}" class="px-6 py-4"></td>
+
+                        <td th:text="${contacto.tipoServicio}" class="px-6 py-4 font-medium"></td>
+
+                        <td th:text="${contacto.mensaje}" class="px-6 py-4 max-w-xs break-words"></td>
+
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex gap-4">
+
+                                <a th:href="@{'/contacto/editar/' + ${contacto.id}}"
+                                    class="text-blue-600 hover:underline font-medium">
+                                    Editar
+                                </a>
+
+                                <form th:action="@{'/contacto/eliminarContacto/' + ${contacto.id}}" method="post"
+                                    onsubmit="return confirm('¿Estás seguro de eliminar este contacto?');">
+
+                                    <input type="hidden" name="_method" value="DELETE">
+
+                                    <button type="submit" class="text-red-600 hover:underline font-medium">
+                                        Eliminar
+                                    </button>
+                                </form>
+
+
+                            </div>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+
+</body>
+
+</html>

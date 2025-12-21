@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>MoveFast</title>
+</head>
+
+<body>
+    <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-[9999]
+                w-[90%] max-w-screen-xl
+                bg-white/80 backdrop-blur-md
+                rounded-full shadow-lg box-border">
+        <div class="px-8 py-4 flex items-center justify-between box-border">
+            <a href="/" class="flex items-center gap-3 no-underline">
+                <img th:src="@{/image/logo.png}" alt="MoveFast Logo" class="h-8 w-auto">
+                <span class="text-lg font-semibold tracking-wide text-gray-800">
+                    MoveFast
+                </span>
+            </a>
+            <div class="flex gap-6">
+                <a th:href="@{/inicio}" class="font-medium text-gray-700 hover:text-blue-600 transition">Inicio</a>
+                <a th:href="@{/servicios}" class="font-medium text-gray-700 hover:text-blue-600 transition">Servicios</a>
+                <a th:href="@{/contacto/formContacto}" class="font-medium text-gray-700 hover:text-blue-600 transition">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-40">
+        <section class="text-center mb-16 px-6">
+            <h1 class="text-5xl font-bold mb-4 text-gray-900">
+                Nuestros Servicios
+            </h1>
+        </section>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+
+            <div class="bg-white max-w-sm p-6 border rounded-xl shadow-md hover:shadow-lg transition">
+                <img class="rounded-lg mb-4" th:src="@{https://i.postimg.cc/yxxNrX3m/mudanza6.jpg}"
+                    alt="Mudanzas residenciales">
+                <h5 class="mb-2 text-2xl font-semibold text-center"> 🚚 Mudanzas residenciales</h5>
+                <ul class="mb-6 text-gray-600 text-base space-y-1 text-center">
+                    <li>• Mudanzas rápidas y sin complicaciones</li>
+                    <li>• Cuidado total de tus pertenencias</li>
+                    <li>• Equipo experto y confiable</li>
+                    <li>• Puntualidad garantizada</li>
+                </ul>
+                <a th:href="@{/contacto/formContacto}"
+                    class="flex justify-center items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg px-4 py-2 transition">
+                    Escoger servicio
+                </a>
+            </div>
+
+            <div class="bg-white max-w-sm p-6 border rounded-xl shadow-md hover:shadow-lg transition">
+                <img class="rounded-lg mb-4" th:src="@{https://i.postimg.cc/x81kVVhC/mudanza5.jpg}"
+                    alt="Mudanzas empresariales">
+                <h5 class="mb-2 text-2xl font-semibold text-center">🏢Mudanzas empresariales</h5>
+                <ul class="mb-6 text-gray-600 text-base space-y-1 text-center">
+                    <li>• Oficina lista en tiempo récord</li>
+                    <li>• Organización por áreas</li>
+                    <li>• Continuidad operativa</li>
+                    <li>• Servicio ágil y seguro</li>
+                </ul>
+                <a th:href="@{/contacto/formContacto}"
+                    class="flex justify-center items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg px-4 py-2 transition">
+                    Escoger servicio
+                </a>
+            </div>
+
+            <div class="bg-white max-w-sm p-6 border rounded-xl shadow-md hover:shadow-lg transition">
+                <img class="rounded-lg mb-4" th:src="@{https://i.postimg.cc/CL68YdwQ/mudanza4.jpg}"
+                    alt="Embalaje profesional">
+                <h5 class="mb-2 text-2xl font-semibold text-center">📦 Embalaje profesional</h5>
+                <ul class="mb-6 text-gray-600 text-base space-y-1 text-center">
+                    <li>• Embalaje seguro y resistente</li>
+                    <li>• Protección para objetos frágiles</li>
+                    <li>• Etiquetado organizado</li>
+                    <li>• Listo para transportar sin riesgos</li>
+                </ul>
+                <a th:href="@{/contacto/formContacto}"
+                    class="flex justify-center items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg px-4 py-2 transition">
+                    Escoger servicio
+                </a>
+            </div>
+
+            <div class="bg-white max-w-sm p-6 border rounded-xl shadow-md hover:shadow-lg transition">
+                <img class="rounded-lg mb-4" th:src="@{https://i.postimg.cc/MZsdNzf8/mudanza11.jpg}"
+                    alt="Mudanza local">
+                <h5 class="mb-2 text-2xl font-semibold text-center">🕒 Servicio express</h5>
+                <ul class="mb-6 text-gray-600 text-base space-y-1 text-center">
+                    <li>• Mudanzas urgentes cuando más lo necesitas</li>
+                    <li>• Atención inmediata y prioritaria</li>
+                    <li>• Rutas optimizadas para ahorrar tiempo</li>
+                    <li>• Servicio confiable en emergencias</li>
+                </ul>
+                <a th:href="@{/contacto/formContacto}"
+                    class="flex justify-center items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg px-4 py-2 transition">
+                    Escoger servicio
+                </a>
+            </div>
+
+            <div class="bg-white max-w-sm p-6 border rounded-xl shadow-md hover:shadow-lg transition">
+                <img class="rounded-lg mb-4" th:src="@{https://i.postimg.cc/c4chSj0k/mudanza3.jpg}"
+                    alt=" Desmontaje y montaje">
+                <h5 class="mb-2 text-2xl font-semibold text-center">🛠️ Desmontaje y montaje</h5>
+                <ul class="mb-6 text-gray-600 text-base space-y-1 text-center">
+                    <li>• Desarmamos y armamos tus muebles</li>
+                    <li>• Evitamos daños y ahorramos tiempo</li>
+                    <li>• Herramientas adecuadas </li>
+                    <li>• Servicio rápido y seguro</li>
+                </ul>
+                <a th:href="@{/contacto/formContacto}"
+                    class="flex justify-center items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg px-4 py-2 transition">
+                    Escoger servicio
+                </a>
+            </div>
+
+            <div class="bg-white max-w-sm p-6 border rounded-xl shadow-md hover:shadow-lg transition">
+                <img class="rounded-lg mb-4" th:src="@{https://i.postimg.cc/xTCLzHdh/mudanza10.jpg}"
+                    alt="Transporte seguro">
+                <h5 class="mb-2 text-2xl font-semibold text-center">🚛 Transporte seguro</h5>
+                <ul class="mb-6 text-gray-600 text-base space-y-1 text-center">
+                    <li>• Vehículos acondicionados </li>
+                    <li>• Protección total durante el traslado</li>
+                    <li>• Conductores expertos y responsables</li>
+                    <li>• Seguimiento para mayor tranquilidad</li>
+                </ul>
+                <a th:href="@{/contacto/formContacto}"
+                    class="flex justify-center items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg px-4 py-2 transition">
+                    Escoger servicio
+                </a>
+            </div>
+
+        </div>
+
+
+    </main>
+
+</body>
+
+</html>
