@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Panel Admin - MoveFast</title>
+</head>
+
+<body class="bg-gray-100">
+
+
+    <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-[9999]
+                w-[90%] max-w-screen-xl
+                bg-white/80 backdrop-blur-md
+                rounded-full shadow-lg">
+        <div class="px-8 py-4 flex items-center justify-between">
+            <a th:href="@{/inicio}" class="flex items-center gap-3">
+                <img th:src="@{/image/logo.png}" alt="MoveFast Logo" class="h-8 w-auto">
+                <span class="text-lg font-semibold tracking-wide text-gray-800">
+                    MoveFast
+                </span>
+            </a>
+
+            <div class="flex gap-6">
+                <a th:href="@{/inicio}" class="font-medium text-gray-700 hover:text-blue-600 transition">Inicio</a>
+                <a th:href="@{/usuarios}" class="font-medium text-gray-700 hover:text-blue-600 transition">Usuarios</a>
+
+
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit" class="font-medium text-gray-700 hover:text-red-600 transition">
+                        Cerrar sesión
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="pt-40 max-w-screen-xl mx-auto px-6">
+
+        <section class="text-center mb-16">
+            <h1 class="text-5xl font-bold text-blue-600 mb-4">
+                Panel del Administrador
+            </h1>
+            <p class="text-xl text-gray-600">
+                Gestión y control del sistema MoveFast
+            </p>
+        </section>
+
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+                    Gestión de Usuarios
+                </h2>
+                <p class="text-gray-600 mb-6">
+                    Administra los usuarios registrados, roles y permisos del sistema.
+                </p>
+                <a th:href="@{/usuarios}" class="inline-block bg-blue-500 text-white px-6 py-3 rounded-full
+                          hover:bg-blue-700 transition">
+                    Ir a usuarios
+                </a>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+                    Gestión de Servicios
+                </h2>
+                <p class="text-gray-600 mb-6">
+                    Administra los servicios del sistema.
+                </p>
+                <a th:href="@{/contacto}" class="inline-block bg-blue-500 text-white px-6 py-3 rounded-full
+                          hover:bg-blue-700 transition">
+                    Ir a servicios
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
