@@ -22,11 +22,6 @@
                 </span>
             </a>
             <div class="flex gap-6">
-                <a th:href="@{/inicio}" class="font-medium text-gray-700 hover:text-blue-600 transition">Inicio</a>
-                <a th:href="@{/servicios}"
-                    class="font-medium text-gray-700 hover:text-blue-600 transition">Servicios</a>
-                <a th:href="@{/contacto/formContacto}"
-                    class="font-medium text-gray-700 hover:text-blue-600 transition">Contacto</a>
                 <form th:action="@{/logout}" method="post">
                     <button type="submit" class="font-medium text-red-600 hover:text-red-800 transition">
                         Cerrar sesión

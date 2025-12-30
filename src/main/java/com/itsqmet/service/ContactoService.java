@@ -22,9 +22,9 @@ public class ContactoService {
         return contactoRepository.findAll();
     }
 
-    // Leer
-    public List<Contacto> mostrarContactos() {
-        return contactoRepository.findAll();
+    // Visualizar contactos por usuario (CLIENTE)
+    public List<Contacto> mostrarPorUsuario(Long usuarioId) {
+        return contactoRepository.findByUsuarioId(usuarioId);
     }
 
     // Guardar
@@ -38,7 +38,7 @@ public class ContactoService {
         return contactoRepository.findById(id);
     }
 
-     // Actualizar
+    // Actualizar
     public Contacto actualizarContacto(Long id, Contacto contacto) {
         Contacto contactoExistente = buscarContactoById(id)
                 .orElseThrow(() -> new RuntimeException("Registro no existe"));
@@ -57,8 +57,7 @@ public class ContactoService {
                 .orElseThrow(() -> new ResponseStatusException(
                         // Constante de Spring que representa el código HTTP 404
                         // 404 = recurso no encontrado
-                        HttpStatus.NOT_FOUND, "Libro no existe"
-                ));
+                        HttpStatus.NOT_FOUND, "Registro no existe"));
         contactoRepository.delete(contacto);
     }
 

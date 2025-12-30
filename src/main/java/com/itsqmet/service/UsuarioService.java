@@ -30,6 +30,11 @@ public class UsuarioService implements UserDetailsService {
         return usuarioRepository.findAll();
     }
 
+    public Usuario buscarPorUsername(String username) {
+        return usuarioRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+    }
+
     // Buscar por ID
     public Optional<Usuario> buscaUsuarioById(Long id) {
         return usuarioRepository.findById(id);
@@ -42,7 +47,7 @@ public class UsuarioService implements UserDetailsService {
         usuario.setPassword(passwordEncriptada);
         // Asignar el rol de cliente por default a todos los usuarios que se registren
         usuario.setRol(Rol.ROLE_CLIENTE);
-        return usuarioRepository.save(usuario) ;
+        return usuarioRepository.save(usuario);
     }
 
     // Actualizar
@@ -52,7 +57,7 @@ public class UsuarioService implements UserDetailsService {
         usuarioExistente.setNombre(usuario.getNombre());
         usuarioExistente.setUsername(usuario.getUsername());
         // Actualización del password solo
-        if (usuario.getPassword()!= null && !usuario.getPassword().trim().isEmpty()) {
+        if (usuario.getPassword() != null && !usuario.getPassword().trim().isEmpty()) {
             usuarioExistente.setPassword(passwordEncoder.encode(usuario.getPassword()));
         }
         return usuarioRepository.save(usuarioExistente);
@@ -65,21 +70,22 @@ public class UsuarioService implements UserDetailsService {
                 .orElseThrow(() -> new ResponseStatusException(
                         // Constante de Spring que representa el código HTTP 404
                         // 404 = recurso no encontrado
-                        HttpStatus.NOT_FOUND, "Usuario no existe"
-                ));
+                        HttpStatus.NOT_FOUND, "Usuario no existe"));
         usuarioRepository.delete(usuario);
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        // Buscar en la BD al usuario que esta autenticandose, si no existe se lanza una exceptión
+        // Buscar en la BD al usuario que esta autenticandose, si no existe se lanza una
+        // exceptión
         // para denegar el acceso
 
-        Usuario usuario = usuarioRepository.findByUsername (username)
-                .orElseThrow (()-> new UsernameNotFoundException("Usuario no encontrado"));
+        Usuario usuario = usuarioRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
 
-        // Usar el metodo builder para construir el objeto que SS entiende como usuario autenticado
+        // Usar el metodo builder para construir el objeto que SS entiende como usuario
+        // autenticado
         return User.builder()
                 .username(usuario.getUsername())
                 .password(usuario.getPassword())

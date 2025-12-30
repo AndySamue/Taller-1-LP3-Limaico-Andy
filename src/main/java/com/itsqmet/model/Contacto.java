@@ -30,6 +30,11 @@ public class Contacto {
     @Size(min = 10, max = 300, message = "El mensaje debe tener entre 10 y 300 caracteres")
     private String mensaje;
 
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario usuario;
+
+    
     public Contacto() {
     }
 
@@ -80,4 +85,13 @@ public class Contacto {
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
     }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
 }

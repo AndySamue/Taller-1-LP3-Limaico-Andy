@@ -30,7 +30,7 @@ public class LoginController {
         if (role.equals("ROLE_ADMIN")) {
             return "redirect:/admin";
         } else if (role.equals("ROLE_CLIENTE")) {
-            return "redirect:/contacto/formContacto";
+            return "redirect:/cliente";
         }  
 
         // Si el rol no coincide
